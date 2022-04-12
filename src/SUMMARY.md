@@ -2,6 +2,6 @@
 
 # Getting Started
 
-- [An Intrduction](./introduction.md)
+- [Introduction](./introduction.md)
 - [Installation](./installation.md)
 

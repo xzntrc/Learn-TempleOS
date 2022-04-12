@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> An Intrduction</a></li><li class="chapter-item expanded "><a href="installation.html" class="active"><strong aria-hidden="true">2.</strong> Installation</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html" class="active"><strong aria-hidden="true">2.</strong> Installation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -143,19 +143,43 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="see-with-the-eyes-wide-open"><a class="header" href="#see-with-the-eyes-wide-open">See with the eyes wide open.</a></h1>
-<p>So the time has come; you want to purify your system? Well, unfortunately, it's not that easy. Running TempleOS on bare metal is somewhat of a challenge as TempleOS was really only made for select hardware. Fortunately, running TempleOS is possible under a Virtual Machine.</p>
+<p>So the time has come; you want to purify your system? Well, unfortunately, it's not that easy. Running TempleOS on bare metal is somewhat of a challenge as TempleOS was only made for select hardware. Fortunately, running TempleOS is possible under a Virtual Machine.</p>
 <h2 id="running-templeos-on-a-vm"><a class="header" href="#running-templeos-on-a-vm">Running TempleOS on a VM</a></h2>
-<p>To start off, you'll need to establish which virtual machine you'll be using, generally there are two options:</p>
+<p>To start, you'll need to establish which virtual machine you'll be using, generally, there are two options:</p>
 <ul>
 <li><a href="https://www.vmware.com/au/products/workstation-player.html">VMware Workstation</a></li>
 <li><a href="https://www.virtualbox.org/">Oracle VirtualBox</a></li>
 <li><a href="https://www.qemu.org/">QEMU</a></li>
 </ul>
-<p>All essentially do the same job of virtualizing an OS, however there is a major difference when it comes specifically TempleOS, that is that VirtualBox does not support PC speakers; it might not be that big of an issue however it is definetely more immersive when you are able to use your speakers, in which case you should be using VMWare Workstation (or even QEMU). The downside to using VMWare is that it requires a license (not to worry however, you can easily find cracked keys on GitHub).</p>
-<p>This will require you to have a basic understanding of how to create a virtual machine using your desired VM software, as  the process is universally the same.</p>
-<p>You can download TempleOS from here: https://www.templeos.org/Downloads/TempleOS.ISO.</p>
+<p>All essentially do the same job of virtualizing an OS, however, there is a major difference when it comes specifically TempleOS, that is that VirtualBox does not support PC speakers; it might not be that big of an issue however it is more immersive when you can use your speakers, in which case you should be using VMWare Workstation (or even QEMU). The downside to using VMWare is that it requires a license (not to worry however, you can easily find cracked keys on GitHub).</p>
+<p>This will require you to have a basic understanding of how to create a virtual machine using your desired VM software, as the process is universally the same.</p>
+<p>You can download TempleOS from <a href="https://www.templeos.org/Downloads/TempleOS.ISO">here</a>.</p>
+<h3 id="using-virtualbox--vmware-workstation"><a class="header" href="#using-virtualbox--vmware-workstation">Using VirtualBox / VMWare Workstation</a></h3>
+<p>This will be detailed specifically for VirtualBox since I don't run VMWare, however, you should be able to replicate this using VMWare; as long as you have half a brain cell, and two functional arms.</p>
+<p>Upon opening, VirtualBox selects the &quot;New&quot; button.</p>
+<ol>
+<li>
+<p>Enter in a name for your Virtual Machine, you can name it anything. For Type select &quot;Other&quot; and the version, select &quot;Other/Unknown (64-bit)&quot;.</p>
+</li>
+<li>
+<p>Next, you'll be required to enter in the amount of memory to use; generally TempleOS only needs 512MB to boot, however, be safe and give it around 2 to 4 Gigabytes of RAM.</p>
+</li>
+<li>
+<p>After memory, you'll be prompted for a hard disk, select &quot;Create a virtual hard disk now&quot;. On the next screen select &quot;VDI&quot;, next &quot;Dynamically allocated&quot;. Finally for the HD size, just enter in 2GBs and create.</p>
+</li>
+<li>
+<p>You should now be able to launch, open doing so select the TempleOS ISO that you downloaded.</p>
+</li>
+<li>
+<p>On the left panel, you should be prompted to install TempleOS, all you'll need to do is press <code>y</code> 3 times (Easier than installing Linux). At this point, you're all good to go.</p>
+</li>
+<li>
+<p>Remove the live CD by selecting the Virtual Machine, going to &quot;Settings&quot;, &quot;Storage&quot; and removing the ISO. This will allow you to boot into the fresh install.</p>
+</li>
+</ol>
+<p>I've seen orangutans cut a tree in half, so if you can't do this, I'm honestly ashamed.</p>
 <h3 id="using-qemu"><a class="header" href="#using-qemu">Using QEMU</a></h3>
-<p>I usually recommend using QEMU as it's completely free and cross platform. Additionally, QEMU supports audio output for TempleOS. Note that this guide for using QEMU is intended for Linux specifically.</p>
+<p>I usually recommend using QEMU as it's completely free and cross-platform. Additionally, QEMU supports audio output for TempleOS. Note that this guide for using QEMU is intended for Linux specifically.</p>
 <ol>
 <li>
 <p>Once you have the ISO saved somewhere on your disk, we can create a Virtual Disk Image:</p>
@@ -164,10 +188,10 @@
 <p>qemu-img is the program for managing disks, create will create a disk, -f is a file flag and we chose a qcow2 file, temple will be the name of the file, and 2G means 2 gigabytes in size.</p>
 </li>
 <li>
-<p>Set up the host audio. This tells QEMU how your host projects the audio. Use this command if your linux host uses pulse audio:</p>
+<p>Set up the host audio. This tells QEMU how your host projects the audio. Use this command if your Linux host uses pulse audio:</p>
 <pre><code class="language-sh">export QEMU_AUDIO_DRV=pa
 </code></pre>
-<p>If instead you use alsa replace &quot;pa&quot; with &quot;alsa&quot; in the above command.</p>
+<p>If instead, you use alsa replace &quot;pa&quot; with &quot;alsa&quot; in the above command.</p>
 </li>
 <li>
 <p>Now time to load the live CD:</p>
@@ -177,7 +201,7 @@
 </li>
 <li>
 <p>Installing onto the Virtual Disk.
-upon starting up TempleOS, follow the prompts and install to the CD, after doing so, to boot into the CD run:</p>
+upon starting up TempleOS, follow the prompts and install to the CD, after doing so, boot into the CD run:</p>
 <pre><code class="language-sh">qemu-system-x86_64 -soundhw pcspk -m 512M -enable-kvm -drive file=temple
 </code></pre>
 </li>
