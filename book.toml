@@ -1,0 +1,6 @@
+[book]
+authors = ["Eccentrici"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Learn TempleOS"
