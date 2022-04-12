@@ -57,3 +57,5 @@ I usually recommend using QEMU as it's completely free and cross-platform. Addit
     ```sh
     qemu-system-x86_64 -soundhw pcspk -m 512M -enable-kvm -drive file=temple
     ```
+
+I'd like to thank [this reddit post](https://www.reddit.com/r/TempleOS_Official/comments/ewtp0n/templeos_with_sound_in_qemulinux_host/) for the info on QEMU.
